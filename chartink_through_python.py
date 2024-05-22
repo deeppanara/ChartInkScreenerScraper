@@ -4,7 +4,7 @@ def GetDataFromChartink(payload):
     from bs4 import BeautifulSoup
     import pandas as pd
     import logging
-    from win10toast import ToastNotifier
+    # from win10toast import ToastNotifier
     #toast = ToastNotifier()
     #toast.show_toast("Hello, World!")
     
@@ -84,8 +84,11 @@ def ChartInkScraper(marketdirection):
     import pyperclip
     import logging
 
-
-    chrome_driver_path = r"C:\chromedriver.exe"
+    chrome_driver_path = "/usr/bin/chromedriver"
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
     browser = webdriver.Chrome(chrome_driver_path)
     dc.CHROME["unexpectedAlertBehaviour"] = "accept"
 
@@ -93,6 +96,7 @@ def ChartInkScraper(marketdirection):
     #browser.get("https://chartink.com/screeners/bearish-screeners")
     #browser.get("https://chartink.com/screeners/intraday-bearish-screeners")
     #browser.get("https://chartink.com/screeners/intraday-bullish-screeners")
+    
     browser.get("https://chartink.com/screeners/"+marketdirection)
 
     listOfDataFramesOuter = pd.DataFrame()

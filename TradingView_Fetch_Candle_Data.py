@@ -54,7 +54,7 @@ class TvDatafeed:
             password (str, optional): tradingview password. Defaults to None.
         """
 
-        self.ws_debug = False
+        self.ws_debug = True
 
         self.token = self.__auth(username, password)
 
@@ -311,15 +311,23 @@ class TvDatafeed:
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
     tv = TvDatafeed('','')
-    print(tv.get_hist("CRUDEOIL", "MCX", fut_contract=1))
-    print(tv.get_hist("NIFTY", "NSE", fut_contract=1))
-    print(tv.get_hist("BANKNIFTY", "NSE", fut_contract=1))
-'''     print(
+    print(
+        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    )
+        
+        
+    # print(tv.get_hist("CRUDEOIL", "MCX", fut_contract=1))
+    # print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    # print(tv.get_hist("NIFTY", "NSE", fut_contract=1))
+    # print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    # print(tv.get_hist("BANKNIFTY", "NSE", fut_contract=1))
+    # print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    print(
         tv.get_hist(
             "EICHERMOT",
             "NSE",
-            interval=Interval.in_15_minute,
+            interval=Interval.in_3_minute,
             n_bars=4,
             extended_session=False,
         )
-    ) '''
+    )
